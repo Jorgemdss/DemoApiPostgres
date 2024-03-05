@@ -1,0 +1,40 @@
+# network where the 2 services will live in, so they can communicate with each other
+networks:
+  dev:
+    driver: bridge
+
+services:
+  app_db:
+    #second service is the postgres database
+    image: postgres:latest
+    container_name: app_db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=demodatabase
+    ports:
+      - "5433:5432"
+    restart: always
+    volumes:
+      - app_data:/var/lib/postgres/data
+    networks:
+      - dev
+  demo-app:
+    #first service is the demo app
+    image: docker.io/library/demoapp
+    depends_on:
+      - "app_db"
+    container_name: demoapp-services
+    ports:
+      - "8088:80"
+    build:
+      context: .
+      dockerfile: dockerfile
+    environment:
+      - ConnectionStrings__DefaultConnection=User Id=postgres; Password=postgres; Server=app_db; Port=5432; Database=demodatabase; Pooling=true;
+      - ASPNETCORE_URLS=http://+:80
+    networks:
+      - dev
+
+volumes:
+  app_data:
