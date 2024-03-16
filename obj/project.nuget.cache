@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SvCgpJzOP0X27vp+4vLmHc8ACZ0c9SN2SBXTQfOL8wJr1e5NqCR9KDidwJB+D2Cg48SG1VHS2/9VfZ2fl2+ZwA==",
+  "dgSpecHash": "HTKgkiVFmtc62G1p9UrXJTCdx2FC0eSsMXjvDiN3Ia4FTHGexPRl9/LSPm3ky7wbalDxlISHGC+FwPlhLTEEhA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jmdsa\\Documents\\repos\\studies\\containers\\DemoApp\\DemoApp.csproj",
+  "projectFilePath": "C:\\Users\\jmdsa\\Documents\\repos\\studies\\DemoApiPostgres\\DemoApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jmdsa\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\jmdsa\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

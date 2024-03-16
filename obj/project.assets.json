@@ -8409,11 +8409,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jmdsa\\Documents\\repos\\studies\\containers\\DemoApp\\DemoApp.csproj",
+      "projectUniqueName": "C:\\Users\\jmdsa\\Documents\\repos\\studies\\DemoApiPostgres\\DemoApp.csproj",
       "projectName": "DemoApp",
-      "projectPath": "C:\\Users\\jmdsa\\Documents\\repos\\studies\\containers\\DemoApp\\DemoApp.csproj",
+      "projectPath": "C:\\Users\\jmdsa\\Documents\\repos\\studies\\DemoApiPostgres\\DemoApp.csproj",
       "packagesPath": "C:\\Users\\jmdsa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jmdsa\\Documents\\repos\\studies\\containers\\DemoApp\\obj\\",
+      "outputPath": "C:\\Users\\jmdsa\\Documents\\repos\\studies\\DemoApiPostgres\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jmdsa\\AppData\\Roaming\\NuGet\\NuGet.Config"
