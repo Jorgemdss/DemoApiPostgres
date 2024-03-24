@@ -1,9 +1,13 @@
+using System.Text.Json.Serialization;
 using DemoApp.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
 
 
 // Add services to the container.
@@ -17,7 +21,9 @@ var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<ApiDbContext>(options =>
 {
-    options.UseNpgsql(connection);
+    options.UseLazyLoadingProxies()
+        .UseNpgsql(connection);
+    //options.UseNpgsql(connection);
 });
 var app = builder.Build();
 
@@ -31,6 +37,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+
 
 
 using (IServiceScope scope = app.Services.CreateScope())

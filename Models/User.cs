@@ -1,6 +1,7 @@
 namespace DemoApp.Models;
 
-public class User {
+public class User
+{
 
     public int Id { get; set; }
 
@@ -8,4 +9,6 @@ public class User {
 
     public DateTime DateOfBirth { get; set; }
 
- }
+    public virtual ICollection<Role> Roles { get; set; } = [];
+
+}
