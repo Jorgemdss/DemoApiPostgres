@@ -1,4 +1,3 @@
-docker compose up --build
 # Containerized .Net Core 8 API with Postgres DB
 ![](https://img.shields.io/github/stars/Jorgemdss/DemoApiPostgres)
 ![](https://img.shields.io/github/watchers/Jorgemdss/DemoApiPostgres)
