@@ -23,7 +23,6 @@ builder.Services.AddDbContext<ApiDbContext>(options =>
 {
     options.UseLazyLoadingProxies()
         .UseNpgsql(connection);
-    //options.UseNpgsql(connection);
 });
 
 builder.Services.AddCors(options =>
