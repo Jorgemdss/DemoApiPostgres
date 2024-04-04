@@ -25,6 +25,14 @@ builder.Services.AddDbContext<ApiDbContext>(options =>
         .UseNpgsql(connection);
     //options.UseNpgsql(connection);
 });
+
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(p => {
+       p.WithOrigins("http://localhost:4200"); // angular app
+    });
+});
+
 var app = builder.Build();
 
 app.MapControllers();
@@ -38,8 +46,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-
-
+app.UseCors();
 
 using (IServiceScope scope = app.Services.CreateScope())
 {
