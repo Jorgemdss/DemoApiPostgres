@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DemoApp.Data;
 using DemoApp.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DemoApp.Controllers
 {
@@ -23,16 +24,17 @@ namespace DemoApp.Controllers
 
         // GET: api/User
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
-            return await _context.Users.Include(u => u.Roles).ToListAsync();
+            return await _context.UsersApi.Include(u => u.Roles).ToListAsync();
         }
 
         // GET: api/User/5
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
-            var user = await _context.Users.FindAsync(id);
+            var user = await _context.UsersApi.FindAsync(id);
 
             if (user == null)
             {
@@ -78,7 +80,7 @@ namespace DemoApp.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
-            _context.Users.Add(user);
+            _context.UsersApi.Add(user);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetUser", new { id = user.Id }, user);
@@ -88,13 +90,13 @@ namespace DemoApp.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
-            var user = await _context.Users.FindAsync(id);
+            var user = await _context.UsersApi.FindAsync(id);
             if (user == null)
             {
                 return NotFound();
             }
 
-            _context.Users.Remove(user);
+            _context.UsersApi.Remove(user);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -102,7 +104,7 @@ namespace DemoApp.Controllers
 
         private bool UserExists(int id)
         {
-            return _context.Users.Any(e => e.Id == id);
+            return _context.UsersApi.Any(e => e.Id == id);
         }
     }
 }

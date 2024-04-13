@@ -1,9 +1,9 @@
 using DemoApp.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-
 namespace DemoApp.Data;
 
-public class ApiDbContext : DbContext
+public class ApiDbContext : IdentityDbContext
 {
     public ApiDbContext(DbContextOptions options)
         : base(options)
@@ -22,6 +22,12 @@ public class ApiDbContext : DbContext
 
 
 
-    public DbSet<User> Users { get; set; }
-    public DbSet<Role> Roles { get; set; }
+    /// <summary>
+    /// The DB set for the user Entity.
+    /// Do not confuse with the Identity DB set "Users"
+    /// </summary>
+    /// <value></value>
+    public DbSet<User> UsersApi { get; set; }
+    public DbSet<Role> RolesApi { get; set; }
+
 }
