@@ -16,7 +16,7 @@ This initial version simply has 2 Models, being User and Role, with a many to ma
 
 ### Planned features
 
-- [ ] Authentication
+- [ ] Authentication (Using new  [Identity Auth](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity-api-authorization?view=aspnetcore-8.0 "Identity Auth"))
 - [ ] Authorization
 - [ ] Create repositories
 - [ ] Create services
